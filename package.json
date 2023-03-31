@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watch",
     "dev": "webpack serve",
-    "build": "webpack",
+    "build": "webpack --mode production",
     "b": "webpack --watch",
     "testJest": "jest",
     "ds": "nodemon ./server/index.js",

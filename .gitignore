@@ -2,4 +2,6 @@ node_modules/
 .env
 .config.js
 coverage/
-public/
+public/main.js
+public/main.js.LICENSE.txt
+public/index.html
