@@ -9,6 +9,9 @@ export default function ReviewListSearchBar() {
   let textFilter = useSelector(
     (state) => state.ratingsReviewsReducer.textFilter
   );
+  const { filteredResultsNum, ratingsReviews } = useSelector(
+    (s) => s.ratingsReviewsReducer
+  );
   let dispatch = useDispatch();
 
   return (
@@ -28,6 +31,7 @@ export default function ReviewListSearchBar() {
         bg={"base-100"}
         text={textFilter}
         minimum={4}
+        leftShown={filteredResultsNum !== ratingsReviews.length}
       />
     </div>
   );

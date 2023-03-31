@@ -27,7 +27,6 @@ const RatingsDistributionGraph = ({}) => {
       <h2 className="text-sm">
         {recommend || "Loading"}% of reviews recommend this product
       </h2>
-      {console.log(meta)}
       {ratings &&
         Object.keys(ratings)
           .reverse()

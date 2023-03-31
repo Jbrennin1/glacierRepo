@@ -50,7 +50,7 @@ module.exports = {
         orangeTheme: {
           "base-100": "#191D24",
           "base-200": "#040506",
-          "base-300": "#191D24",
+          "base-300": "#232933",
           "base-400": "#D0D0D0",
           primary: "#ffa600",
           secondary: "#d9ff00",

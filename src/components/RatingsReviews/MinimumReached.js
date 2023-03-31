@@ -5,13 +5,14 @@ export default function MinimumReached({
   bg = "base-200",
   minimum = 50,
   leftElement,
+  leftShown = false,
 }) {
   return (
     <div
       className={
         "flex bg-inherit flex-row w-full h-8 mt-4 bg-" +
         bg +
-        (leftElement ? " justify-between" : " justify-end")
+        (leftShown ? " justify-between" : " justify-end")
       }
     >
       {leftElement}

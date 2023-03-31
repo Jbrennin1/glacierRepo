@@ -13,8 +13,8 @@ export const HorizontalBarWithLabels = ({
     <div
       className={
         "flex distributionBar flex-1 flex-row items-center mb-4 justify-around cursor-pointer hover:colorShift transition-colors duration-200" +
-        (selected ? " bg-accent" : "") +
-        (isHovering ? " bg-gray-100" : "")
+        (selected ? " bg-base-300" : "") +
+        (isHovering ? " bg-base-300" : "")
       }
       module="distributionBar|Ratings"
       onClick={() => handleRatingClick()}

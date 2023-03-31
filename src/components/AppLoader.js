@@ -40,33 +40,27 @@ export default function AppLoader() {
     dispatch(metaRequest());
     if (product && product.id) {
       apiGetRequest("/reviews/meta", { product_id: product.id }).then((res) => {
-        let num = ratingsReviews.length;
         let sum = 0;
+        let num = 0;
         let max = 0;
-        var ratings = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-        ratingsReviews.forEach((review) => ratings[review.rating]++);
-
-        for (let key in ratings) {
-          sum += key * ratings[key];
-          if (ratings[key] > max) max = ratings[key];
+        for (let key in res.ratings) {
+          sum += key * res.ratings[key];
+          num += parseInt(res.ratings[key]);
+          if (parseInt(res.ratings[key]) > max)
+            max = parseInt(res.ratings[key]);
         }
         const average = sum / num;
-        var recommend = Math.floor(
+        res.numReviews = num;
+        res.averageReviews = Math.floor(average * 10) / 10;
+        res.max = max;
+        res.recommend = Math.floor(
           (100 * res.recommended.true) /
             (parseInt(res.recommended.true) + parseInt(res.recommended.false))
         );
-        var ret = {
-          ...res,
-          numReviews: num,
-          averageReviews: Math.floor(average * 10) / 10,
-          max,
-          recommend,
-          ratings,
-        };
-        dispatch(metaSuccess({ meta: ret }));
+        dispatch(metaSuccess({ meta: res }));
       });
     }
-  }, [product, ratingsReviews]);
+  }, [product]);
 
   const [isLoading, setIsLoading] = useState(true);
 
