@@ -21,9 +21,6 @@ body, #bigRoot {
   width: 100%;
 }
 
-#titleCard {
-  color: #525252;
-}
 
 #tooltip {
   z-index: 9;
