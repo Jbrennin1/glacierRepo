@@ -46,14 +46,14 @@ const AddAnswerForm = ({ product, question, setAnswerForm }) => {
 
 
   var handleAnswerSubmit = () => {
-    console.log(newAnswer);
+
     const formData = new FormData();
     Array.from(newAnswer.photos).forEach((photo) =>
       formData.append('photos', photo)
     );
     delete newAnswer.photos;
     Object.keys(newAnswer).forEach((key) => {
-      console.log('KEY', key);
+
       formData.append(key, JSON.stringify(newAnswer[key]));
     });
 
@@ -62,15 +62,13 @@ const AddAnswerForm = ({ product, question, setAnswerForm }) => {
     );
 
     setAnswerForm(false);
-    console.log(newAnswer);
-    console.log('Submit!');
 
     if (!loading) {
       apiLocalPostRequest('/answers', formData)
     .then(async (res) => {
       let images = res.data.photos;
       newAnswerRender.photos = images;
-      console.log(newAnswerRender);
+
       if (res.status === 201) {
         dispatch(questionsAnswersSlice.actions.addAnswer({ questionId: question.question_id, answer: newAnswerRender}));
       }
@@ -78,22 +76,6 @@ const AddAnswerForm = ({ product, question, setAnswerForm }) => {
       console.log('error occured when try to add a new answer', err);
     }).finally(() => setLoading(false));
     }
-
-    // if (!loading) {
-    //   setLoading(true);
-    //   axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/${question.question_id}/answers`, newAnswer, {headers})
-    //   .then((response) => {
-    //     if (response.status === 201) {
-    //       dispatch(questionsAnswersSlice.actions.addAnswer({ questionId: question.question_id, answer: newAnswerRender}));
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   })
-    //   .finally(() => {
-    //     setLoading(false)
-    //   });
-    // }
   };
 
   // validate functions
@@ -127,7 +109,7 @@ const AddAnswerForm = ({ product, question, setAnswerForm }) => {
     return errors;
   };
 
-  console.log(validateAnswer());
+
 
   const onAnswerChange = (e) => {
     setNewAnswer(prevState => ({ ...prevState, body: e.target.value }));
@@ -146,7 +128,7 @@ const AddAnswerForm = ({ product, question, setAnswerForm }) => {
     if (e.target.files) {
       let photo = e.target.files[0];
       newAnswer.photos.push(photo);
-      console.log(newAnswer.photos);
+
     } else {
       return;
     }
