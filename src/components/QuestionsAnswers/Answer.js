@@ -53,7 +53,7 @@ const Answer = ({answers, QaStatus, loadMore, firstTwo, setLoadMore, loadMoreVis
           return (
             <div key={id} className='container mx-auto py-4 px-2'>
               <p className='QAheader'><span>A: </span>{answers[id].body}</p>
-              <div><Photos photos={answers[id].photos} custom={true} /></div>
+              <Photos photos={answers[id].photos} custom={true} />
               <div className='px-4 flex flex-row'>
                 <QaStatus data={{reviewer_name: answers[id].answerer_name, date: answers[id].date, helpfulCount: answers[id].helpfulness}}
                 clickedAnswerId={clickedAnswerId}
@@ -73,8 +73,8 @@ const Answer = ({answers, QaStatus, loadMore, firstTwo, setLoadMore, loadMoreVis
           return (
             <div key={id} className='container mx-auto py-4 px-2'>
               <p><span className='QAheader'>A: </span>{answers[id].body}</p>
-              <div className='flex flex-row'><Photos photos={answers[id].photos} custom={true} /></div>
-              <div className='px-4 flex flex-row'>
+              <Photos photos={answers[id].photos} custom={true} />
+              <div className='px-4'>
                 <QaStatus data={{reviewer_name: answers[id].answerer_name, date: answers[id].date, helpfulCount: answers[id].helpfulness}}
                 clickedAnswerId={clickedAnswerId}
                 reported={reported}

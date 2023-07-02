@@ -5,12 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
-    "dev": "webpack serve",
     "build": "webpack --mode production",
     "b": "webpack --watch",
     "testJest": "jest",
-    "ds": "nodemon ./server/index.js",
-    "start": "node ./server/index.js"
+    "start": "nodemon ./server/index.js"
   },
   "repository": {
     "type": "git",

@@ -66,7 +66,6 @@ const ReviewListItem = ({
       <h3 className="bold" dangerouslySetInnerHTML={{ __html: summary }}>
         {/*.slice(0, 60)*/}
       </h3>
-      {/*<p>{displayedSummary.slice(60)}</p>*/}
       <p
         dangerouslySetInnerHTML={{
           __html: body.slice(0, capBody ? capLen : undefined),

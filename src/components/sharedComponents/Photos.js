@@ -15,7 +15,7 @@ const Photos = ({
   const dispatch = useDispatch();
 
   return (
-    <div className={"photos " + (custom ? "" : "px-5 py-3")}>
+    <div className={"flex photos " + (custom ? "" : "px-5 py-3")}>
       {photos.map((photoUrl, index) => {
         return (
           <img

@@ -37,11 +37,9 @@ export default function CustomBody({ label, noCrap = false, ...props }) {
           onBlur={field.onBlur}
           module="newReviewBody|Ratings"
           onFocus={(ev) => {
-            console.log("setting hidden to true");
             setHidden(true);
           }}
           onBlur={(ev) => {
-            console.log(ev.target.value, ev.target.value === "");
             if (ev.target.value === "") setHidden(false);
           }}
         />

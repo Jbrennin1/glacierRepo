@@ -150,7 +150,6 @@ const AddAnswerForm = ({ product, question, setAnswerForm }) => {
 
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
           validateAnswer()
           handleAnswerSubmit();
